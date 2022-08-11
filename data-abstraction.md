@@ -1,0 +1,42 @@
+# Data Abstraction
+
+###### CS201: Elementary Data Structures / Unit 1: Abstract Data Types and Arrays in C++
+
+## 2.2.1 Example: Arithmetic on Rational Numbers
+
+Recall that a rational number is a ratio of integers, and rational numbers constitute an important sub-class of real numbers. A rational number such as 1/3 or 17/29 is typically written as:
+
+``<numerator>/<denominator>``
+
+However, as soon as we actually divide the numerator by the denominator, we can be left with a truncated decimal approximation (a float).
+
+```
+>>> 1/3
+0.3333333333333333
+```
+
+...
+
+
+- rational(n, d) returns the rational number with numerator n and denominator d.
+- numer(x) returns the numerator of the rational number x.
+- denom(x) returns the denominator of the rational number x.
+
+We are using here a powerful strategy of synthesis: __wishful thinking__. We haven't yet said how a rational number is represented, or how the functions numer, denom, and rational should be implemented. Even so, if we did have these three functions, we could then add, multiply, and test equality of rational numbers by calling them:
+
+```python
+def add_relationals(x):
+        nx, dx = numer(x), denom(x)
+        ny, dy = numer(y), denom(y)
+        return rational(nx * dy + ny * dx, dx * dy)
+
+def mul_rationals(x, y):
+        return rational(numer(x) * numer(y), denom(x) * denom(y))
+
+def equal_rationals(x, y):
+        return numer(x) * denom(y) == numer(y) * denom(x)
+```
+
+Now we have the operations on rational numbers defined in terms of the selector functions numer and denom, and the constructor function rational, but we haven't yet defined these functions. What we need is some way to glue together a numerator and a denominator into a unit.
+
+###### Source: John DeNero, http://composingprograms.com/versions/v1/pages/22-data-abstraction.html
