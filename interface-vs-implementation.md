@@ -1,0 +1,166 @@
+# Abstract Data Types
+
+###### CS201: Elementary Data Structures / Unit 1: Abstract Data Types and Arrays in C++
+
+## 2.2.1 Abstract Data Types in C++
+
+A class is a user defined abstract data type that further expands upon the concept of a structure but instead of containing just data, it also includes functions.
+
+In OO parlance, functions within a class are referred to as methods.
+
+The concept of enclosing data and functions together within a single entity is referred to as Encapsulation.
+
+Strictly speaking, as far as the compiler is concerned, the only difference between a structure and a class is that of accessibility (aka visibility). A structure's members are all public by default, whereas a class's members are all private by default. However, it is normal programming convention not to mix the two up and therefore structures are generally used for data (or POD: Plain Old Data), and classes are used for objects.
+
+A class consists of three elements:
+
+- Identity
+  - Name for the class
+- Attributes
+  - Data members
+- Methods
+  - Function members
+
+
+  Syntax:
+```cpp
+class identity {
+    public:
+      //  members ;
+    private:
+      //  members ;
+    protected:
+      //  members ;
+} objects;
+
+```
+
+Simple Class:
+
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Triangle {
+
+public:
+  float width;
+  float height;
+
+  float area() { return ((width * height) / 2); }
+};
+
+int main() {
+
+  Triangle myTriangle;
+
+  myTriangle.width = 5; // member access using the .dot operator
+  myTriangle.height = 6;
+  cout << "Triangle area: " << myTriangle.area() << endl;
+  return 0;
+}
+```
+
+### Encapsulation
+
+The concept of combining attributes and methods (data and functions), collectively referred to as members, into a single named object / entity.
+
+...
+
+Access to an object's attributes should only be controlled by the object itself, and no other object should directly change an attribute of another object.
+
+This concept is known as data hiding.
+
+This is akin to the black box model. We don't care what goes on inside as long as we get what we want from it, providing we supply the correct information to it.
+
+So as long as the interface stays the same, the internal methods of the object can be changed or improved as/if required.
+
+Reduces complexity and dependencies, so that a change in one place won't require multiple changes elsewhere.
+
+In this example, objectA is instantiated on line 26, we then access its public set method to give values to its private data members, and finally we access those private data members using the public get methods on line 30 `cout << objectA.getFirst() << objectA.getSecond() << endl; `:
+
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+class MyClass{
+	private :
+		string first, second ;
+
+	public:
+		void set(string x, string y){
+			first = x ;
+			second = y ;
+		}
+
+		string getFirst(){
+			return first;
+		}
+
+		string getSecond(){
+			return second;
+		}
+};
+
+int main() {
+
+	MyClass objectA ;
+
+	objectA.set("Hello, ","World!") ;
+
+	cout << objectA.getFirst() << objectA.getSecond() << endl ;
+
+	return 0;
+}
+```
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+class MyClass {
+	private:
+	  string first, second;
+
+	public:
+	  void set(string, string);
+	  string getFirst();
+	  string getSecond();
+}
+
+void MyClass::set(string x, string y) {
+  first = x;
+  second = y;
+}
+
+string MyClass::getFirst() { return first; }
+string MyClass::getSecond() { return second; }
+
+int main() {
+
+  MyClass objectA;
+  objectA.set("Hello, ", "World!");
+
+  cout << objectA.getFirst() << objectA.getSecond() << endl;
+
+  return 0;
+}
+```
+
+### Interface vs Implementation
+
+This concept focuses upon separating what an object does from how it does it.
+
+This concept goes hand in hand with encapsulation, data hiding and abstraction in providing the foundations for OOP.
+
+Specifically, Interface is the public methods of a class that control how it behaves. Whereas implementation is the actual workings of how it behaves.
+
+For instance, slightly modifying the previous example, the class now simply declares its interfaces within the class declaration.
+
+The implementation has been defined outside of the class declaration, but is associated via the scope resolution operator ::
+
+Thus, this class's interface can be seen on lines 10, 11 and 12, and their according implementations on lines 15, 20 and 24 :
