@@ -1,36 +1,34 @@
+// chatGPT 3.5 fixed
 class MyClass {
 
-	this.first = "";
-	this.second = "";
-
-	this.set: function(f, s){
-		f = first;
-		s = second;
+	constructor() {
+		this.first = "";
+		this.second = "";
 	}
 
-	this.getFirst: function(){
-		return first;
+	set(f, s){
+		this.first = f;
+		this.second = s;
 	}
 
-	this.getSecond: function(){
-		return second;
+	getFirst() {
+		return this.first;
+	}
+
+	getSecond() {
+		return this.second;
 	}
 }
 
 
 function main() {
 
-	console.log(typeof MyClass);
-
 	const objectA = new MyClass();
 
-	console.log(typeof objectA);
+	objectA.set("Hello, ", "World!");
 
-	//
-	// objectA.set("Hello, ", "World!");
-	//
-	// console.log( objectA.getFirst(), objecatA.getSecond(), "\n" )
-	//
+	console.log( objectA.getFirst() + objectA.getSecond(), "\n" )
+
 	return null;
 }
 
