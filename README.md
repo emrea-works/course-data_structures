@@ -1,7 +1,9 @@
-# CS201 Elementary Data Structures Course
+# CS201 Elementary Data Structures Course Notebook
 
 ###### Saylor Academy Certification Program
 
-**WIP!**
+### Folder Structure Format
 
-Notes structure will be restored according to the same content tree in the course.
+- directory::unit-#.#-unit_name
+	- directory::#.#.#-subject_name
+		- file::#.#.#-inner_subject_name.md
