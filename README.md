@@ -5,5 +5,5 @@
 ### Folder Structure Format
 
 - directory::unit-#.#-unit_name
-	- directory::#.#.#-subject_name
-		- file::#.#.#-inner_subject_name.md
+  - directory::#.#.#-subject_name
+    - file::#.#.#-inner_subject_name.md
