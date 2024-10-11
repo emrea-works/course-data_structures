@@ -1,6 +1,6 @@
 # EditorConfig is awesome: https://editorconfig.org
 
-[*]
+[*.{cpp,rs,java,js,ts}]
 indent_style = space
 indent_size = 4
 
